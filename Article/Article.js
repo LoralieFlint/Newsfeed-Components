@@ -89,23 +89,53 @@ const data = [
 ];
 
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below: 
-  
   <div class="article">
     <h2>{title of the article}</h2>
     <p class="date">{date of the article}</p>
-
     {three separate paragraph elements}
-
     <span class='expandButton'></span>
   </div>
-
   Hint: You will need to use createElement more than once here!
+*/
+function article(arr){
+  // Your function should take either an object as it's one argument, or 5 separate arguments mapping to each peice of the data object above.
+  const div = document.createElement("div");
+  const headerTwo = document.createElement("h2");
+  const p = document.createElement("p");
+  const spanEl = document.createElement("span");
 
-  Your function should take either an object as it's one argument, or 5 separate arguments mapping to each peice of the data object above.
+  div.classList.add("article");
+  p.classList.add("date");
+  spanEl.classList.add("expandButton");
 
-  Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+  div.appendChild(headerTwo);
+  headerTwo.appendChild(p);
+  p.appendChild(spanEl);
 
-  Step 3: return the entire component.
+  // Step 2: Add an event listener to the expandButton span. This event listener should toggle the class 'article-open' on the 'article' div.
+  let exButton = document.querySelector(".expandButton").addEventListener("click", () => {
+    exButton.classList.toggle("article", ".article-open");
+      // Step 3: return the entire component.
+    return arr;;
+  })
+  const articleItems = article.map((e) => {
+    const articleItem = document.createElement("p")
+    articleItem.textContent = data.p;
+    return articleItem;
+})
+articleItems.forEach((e) => {
+  article.appendChild(e)
+})
+
+const articleSection = document.querySelector(".article");
+articleSection.append(article(data));
+
+};
+
+
+/*
+
+
 
   Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
 
