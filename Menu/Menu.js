@@ -47,9 +47,9 @@ function menuCreator() {
    */
   let button = document
     .querySelector(".menu-button")
-    .addEventListener("click", e => {
+    .addEventListener("click", () => {
       divCreator.classList.toggle("menu--open");
-      return button.e;
+      return button;
     });
   /*  Step 6: add the menu component to the DOM.
    */
